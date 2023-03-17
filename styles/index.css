@@ -1,71 +1,101 @@
-* {
+*,
+*::after,
+*::before {
     box-sizing: border-box;
 }
 
 body {
-    margin: 50px;
     background-color: #050505;
     padding: 0;
+    margin: 0;
+    margin: 0 50px;
+}
+
+@media (max-width: 768px) {
+    body {
+       margin: 0;
+    }
 }
 
 .container {
-    background-color: #051923;
-    border-radius: 20px;
-    padding: 20px;
     max-width: 1300px;
     margin: 0 auto;
 }
 
 header {
-    padding: 0px 20px 20px 20px;
+    width: 100%;
+    height: 110px;
+    background-color: #051923;
     display: flex;
     justify-content: space-between;
-    height: 100px;
-
+    align-items: center;
+    padding: 0 20px;
 }
 
-header .header-profile-picture {
-    height: 100px;
-    width: 100px;
-    margin: 0 auto;
+@media (max-width: 768px) {
+    header .header-profile-picture {
+        height:65px;
+    }
 }
 
-header .header-flag-container {
+header .hamburger {
+    background-image: url("/resources/menu.png");
+    ;
+    display: none;
+    color: white;
+    font-size: 50px;
+}
+
+header .navbar {
     display: flex;
-    width: 110px;
-    height: 100px;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
+    width: 35%;
 }
 
-header .navigation {
-    height: 100px;
-    width: 220px;
-    display: flex;
-    align-items: center;
+@media (max-width: 768px) {
+    header .navbar {
+        display: none;
+    }
+
+    header .hamburger {
+        display: contents;
+    }
 }
+
 
 header .bottom-indicater {
     height: 5px;
     width: 100%;
     border-radius: 2px;
     background: #fbdf00;
-    margin-top: 5px;
+    position: absolute;
 }
 
-nav {
-    width: 100%;
-    display: flex;
+header .language-flag {
+    position: relative;
+    display: inline;
+    cursor: pointer;
 }
 
-nav ul {
-    display: flex;
-    width: 100%;
+header .language-flag:first-child {
+    margin-right: 10px;
+}
+
+
+header .language-flag img {
+    height: 47px;
+    width: 47px;
+}
+
+header .navigation ul {
     padding: 0;
-    justify-content: space-around;
 }
 
-nav li {
+header .navigation li {
+    position: relative;
+    list-style-type: none;
+    display: inline;
     font-family: 'Poppins';
     font-weight: 700;
     font-size: 24px;
@@ -74,24 +104,33 @@ nav li {
     color: white;
 }
 
+header .navigation li:first-child {
+    margin-right: 10px;
+}
+
+
 .hero {
-    height: calc(100vh - 150px);
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
+    height: calc(-110px + 100vh);
+    background-color: blue;
+    width: 100%;
 }
 
-.hero section {
-    padding: 40px;
-}
-
-.hero-content {
+.hero-section {
+    height: 100%;
+    width: 100%;
+    background-color: #051923;
     display: flex;
     align-items: center;
-    padding: 0 30px;
+    justify-content: space-around;
 }
 
-.hero-content h1 {
+.hero-section .hero-text-and-title {
+    background-color: #051923;
+    width: 50%;
+}
+
+.hero-section h1 {
+    margin: 0;
     font-size: 60px;
     font-family: 'Anton', sans-serif;
     color: #fbdf00;
@@ -107,22 +146,17 @@ nav li {
     }
 }
 
-.hero-content p {
+.hero-section p {
     font-family: 'Poppins';
     font-weight: 700;
     font-size: 30px;
     color: #FFFFFF;
-    width: 60%;
     animation: slide-in-bottom 1.5s ease-out forwards 1s;
     opacity: 0;
     transform: translateY(100%);
 }
 
-.hero-content img {
-    object-fit: contain;
-}
-
-.hero-content button {
+.hero-section button {
     background-color: #fbdf00;
     border: none;
     height: 100px;
@@ -133,6 +167,17 @@ nav li {
     opacity: 0;
     transform: translateY(300%);
 }
+
+.hero-section button span {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    color: #050505;
+    margin: 20px;
+}
+
+
 @keyframes slide-in-bottom {
     to {
         opacity: 1;
@@ -140,12 +185,23 @@ nav li {
     }
 }
 
-
-.hero-content button span {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 50px;
-    color: #050505;
-    margin: 20px;
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+    }
+    .hero-section h1 {
+        font-size: 30px;
+    }
+    .hero-section p {
+        font-size: 20px;
+    }
+    .hero-section img {
+        display: none;
+    }
+    .hero-section button {
+        height: 60px
+    }
+    .hero-section button span {
+        font-size: 20px;
+    }
 }
