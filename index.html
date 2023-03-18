@@ -24,7 +24,20 @@
   <div class="container">
     <header>
       <img class="header-profile-picture" src="./resources/nav-profile-picture.png">
-      <button class="hamburger">&#9776;</button>
+      <button class="hamburger" onclick="openSideBar()">&#9776;</button>
+      <!--Side bar on responsive-->
+      <div class="sidebar">
+        <button class="sidebar-button" onclick="closeSideBar()">&times;</button>
+        <div class="sidebar-container">
+          <nav>
+            <ul>
+              <li><a >Home</a></li>
+              <li><a >About</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!---->
       <div class="navbar">
         <nav class="navigation">
           <ul>
@@ -52,13 +65,14 @@
       <section class="hero-section">
         <div class="hero-text-and-title">
           <h1>Hey !</h1>
-          <p>I’m Gaspard Mater, front and back-end developer based in Paris !</p>
+          <p>I’m <span class="highlight-font">Gaspard Mater</span>, front and back-end developer based in Paris !</p>
           <button type="button"><span>Let's chat</span></button>
         </div>
         <img src="./resources/1673806398781 2.png">
       </section>
     </div>
   </div>
+  <script src="./logic/index.js"></script>
 </body>
 
 </html>

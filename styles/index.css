@@ -1,3 +1,13 @@
+:root {
+    --body-bg-color: #050505;
+    --main-bg-color: #051923;
+    --main-accent-color: #fbdf00;
+    --highlight-font-color: #00A6FB;
+    --def-font-color: #fff;
+
+    --fw-bold: 700;
+}
+
 *,
 *::after,
 *::before {
@@ -5,7 +15,7 @@
 }
 
 body {
-    background-color: #050505;
+    background-color: var(--body-bg-color);
     padding: 0;
     margin: 0;
     margin: 0 50px;
@@ -13,7 +23,7 @@ body {
 
 @media (max-width: 768px) {
     body {
-       margin: 0;
+        margin: 0;
     }
 }
 
@@ -22,28 +32,87 @@ body {
     margin: 0 auto;
 }
 
+.highlight-font {
+    font-weight: var(--fw-bold  );
+    color: var(--highlight-font-color);
+}
+
 header {
     width: 100%;
     height: 110px;
-    background-color: #051923;
+    background-color: var(--main-bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
 }
 
+header .header-profile-picture {
+    display: block;
+}
+
 @media (max-width: 768px) {
     header .header-profile-picture {
-        height:65px;
+        height: 65px;
     }
 }
 
 header .hamburger {
-    background-image: url("/resources/menu.png");
-    ;
     display: none;
     color: white;
-    font-size: 50px;
+    font-size: 3.125rem;
+    cursor: pointer;
+}
+
+header .sidebar {
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    right: -15rem;
+    z-index: 100;
+    width: 15rem;
+    height: 100%;
+    background-color: #050505;
+    transition: all 0.3s ease-in-out;
+}
+
+header .sidebar .sidebar-button {
+    background-color: unset;
+    color: var(--def-font-color);
+    border: none;
+    font-size: 3.150rem;
+    cursor: pointer;
+}
+
+header .sidebar .sidebar-container {
+    margin-top: 3rem;
+    height: 100%;
+}
+
+header .sidebar ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+
+header .sidebar li {
+    color: var(--def-font-color);
+    text-align: center;
+    list-style-type: none;
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 1.5rem;
+    list-style: none;
+    cursor: pointer;
+}
+
+header .sidebar.active {
+    right: 0;
 }
 
 header .navbar {
@@ -68,24 +137,26 @@ header .bottom-indicater {
     height: 5px;
     width: 100%;
     border-radius: 2px;
-    background: #fbdf00;
+    background: var(--main-accent-color);
     position: absolute;
+}
+
+header .language {
+    display: inline-flex;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 header .language-flag {
     position: relative;
-    display: inline;
     cursor: pointer;
-}
-
-header .language-flag:first-child {
-    margin-right: 10px;
 }
 
 
 header .language-flag img {
-    height: 47px;
-    width: 47px;
+    display: block;
+    height: 40px;
+    width: 40px;
 }
 
 header .navigation ul {
@@ -98,27 +169,26 @@ header .navigation li {
     display: inline;
     font-family: 'Poppins';
     font-weight: 700;
-    font-size: 24px;
+    font-size: 1.5rem;
     list-style: none;
     cursor: pointer;
-    color: white;
+    color: var(--def-font-color);
 }
 
 header .navigation li:first-child {
-    margin-right: 10px;
+    margin-right: 1rem;
 }
 
 
 .hero {
     height: calc(-110px + 100vh);
-    background-color: blue;
     width: 100%;
 }
 
 .hero-section {
     height: 100%;
     width: 100%;
-    background-color: #051923;
+    background-color: var(--main-bg-color);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -131,9 +201,9 @@ header .navigation li:first-child {
 
 .hero-section h1 {
     margin: 0;
-    font-size: 60px;
+    font-size: 3.75rem;
     font-family: 'Anton', sans-serif;
-    color: #fbdf00;
+    color: var(--main-accent-color);
     animation: slide-in 1s ease-out forwards;
     opacity: 0;
     transform: translateX(-100%);
@@ -148,16 +218,16 @@ header .navigation li:first-child {
 
 .hero-section p {
     font-family: 'Poppins';
-    font-weight: 700;
-    font-size: 30px;
-    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 1.875rem;
+    color: var(--def-font-color);
     animation: slide-in-bottom 1.5s ease-out forwards 1s;
     opacity: 0;
     transform: translateY(100%);
 }
 
 .hero-section button {
-    background-color: #fbdf00;
+    background-color: var(--main-accent-color);
     border: none;
     height: 100px;
     cursor: pointer;
@@ -172,7 +242,7 @@ header .navigation li:first-child {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 3.125rem;
     color: #050505;
     margin: 20px;
 }
@@ -189,19 +259,24 @@ header .navigation li:first-child {
     .hero-section {
         flex-direction: column;
     }
+
     .hero-section h1 {
-        font-size: 30px;
+        font-size: 2.875rem;
     }
+
     .hero-section p {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
+
     .hero-section img {
         display: none;
     }
+
     .hero-section button {
-        height: 60px
+        height: 3.75rem;
     }
+
     .hero-section button span {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 }
