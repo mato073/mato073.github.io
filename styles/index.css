@@ -358,9 +358,7 @@ header .navigation li:first-child {
 
 .project-picture {
     margin-bottom: 2rem;
-    background-image: url("/resources/project.png");
-    background-size: cover;
-    height: 300px;
+    height: auto;
     width: 50%;
     border-radius: 1rem;
 }
