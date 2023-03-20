@@ -190,15 +190,13 @@ header .navigation li:first-child {
     padding: 0 1.875rem;
     height: 100%;
     width: 100%;
-    
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .hero-section .hero-text-and-title {
-    background-color: #051923;
-    width: 50%;
+    width: 75%;
 }
 
 .hero-section h1 {
@@ -260,6 +258,7 @@ header .navigation li:first-child {
 @media (max-width: 768px) {
     .hero-section {
         flex-direction: column;
+        justify-content: center;
     }
 
     .hero-section h1 {
@@ -426,4 +425,37 @@ header .navigation li:first-child {
     .project-infos {
         width: 100%;
     }
+}
+
+footer {
+    margin-top: 10rem;
+    padding-bottom: 4rem;
+    color: var(--def-font-color);
+}
+
+footer .footer-container {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+footer .footer-container h2 {
+    margin: 0;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+}
+
+footer .footer-container p {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+footer .footer-contact-icon {
+    background-color: var(--body-bg-color);
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    gap: 2rem
 }
